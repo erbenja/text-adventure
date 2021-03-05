@@ -20,7 +20,7 @@ Generování je řešeno vytvořením místnosti uprostřed gridu a následně n
 pohybu po něm. Pokud je políčko volné vytvoří se nová místnot. Pohyb a tvorba místnosti 
 se opakuje dokud se nevytvoří požadovaný počet.
 
-Každé NPC, předmět a prostředí má vlastní strategii vycházející z příslušného 'interface'.
+Každé NPC, předmět a prostředí má vlastní strategii vycházející z příslušného interface.
 
 Příkazy jsou vyhodnocovány pomocí třídy Command, která přijme řetězec příkazu a 
 následně porovnává s přípustnými příkazy. Při validní syntaxi přepíše funkci act(), 
