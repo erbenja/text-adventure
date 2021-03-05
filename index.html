@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <title>Text Adventure Game</title>
+</head>
+
+<body class="light">
+
+    <div class="container">
+        <h1>Text adventure</h1>
+
+        <input id="theme-checkbox-input" class="toggle-checkbox-input" type="checkbox">
+        <label id="theme-checkbox" class="toggle-checkbox" for="theme-checkbox-input"></label>
+
+        <div class="menu">
+            <label for="difficulty-slider" class="slider-label">Difficulty:</label>
+            <div class="slide-container">
+                <input type="range" min="1" max="10" value="2" class="slider" id="difficulty-slider">
+            </div>
+
+            <button id="new-game-button">New game</button>
+        </div>
+
+        <div class="game">
+            <textarea id="response-box" rows="10" cols="40" readonly=""></textarea>
+            <input id="command-input" type="text" placeholder="#enter your command and hit Enter">
+        </div>
+
+        <label id="touch-checkbox-text" class="toggle-checkbox-text" for="touch-checkbox-input">Touch control aid</label>
+        <input id="touch-checkbox-input" class="toggle-checkbox-input" type="checkbox">
+        <label id="touch-checkbox" class="toggle-checkbox" for="touch-checkbox-input"></label>
+
+        <div class="touch-input-container">
+            <div class="category-toggle-container">
+                <!--            <label for="id1" id="label1">label1</label>-->
+                <!--            <input type="radio" id="id3" name="category-toggle">-->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/main.js" type="module"></script>
+    <script src="js/elements_setup.js" type="module"></script>
+
+
+
+</body>
+
+</html>

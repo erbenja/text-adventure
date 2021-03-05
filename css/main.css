@@ -1,0 +1,385 @@
+@font-face {
+    font-family: 'Bahnschrift Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Bahnschrift Regular'), url('fonts/BAHNSCHRIFT.woff') format('woff');
+}
+
+:root {
+    font-size: 16px;
+    --slider-value: 1rem;
+    --white: #ededed;
+    --gray0: #c8c8c5;
+    --gray1: #a1a19e;
+    --gray2: #6b6b68;
+    --gray3: #555755;
+    --gray4: #434443;
+    --gray5: #191a19;
+    --black: #0B0C10;
+    --blue0: #1b44fe;
+    --blue1: #4268c5;
+    --blue2: #102376;
+    --green0: #139233;
+    --green1: #136f2a;
+    --red: #cf0400;
+    --pink: #FF086C;
+    --violet: #c452e2;
+    --purple0: #9056db;
+    --purple1: #5f4197;
+    --yellow: #dec246;
+}
+
+.dark {
+    --bg: var(--black);
+    --secondary-bg: var(--gray4);
+    --text: var(--white);
+    --secondary-text: var(--gray0);
+    --console-bg: var(--gray5);
+    --on: var(--green1);
+    --off: var(--red);
+    --button: var(--green1);
+    --category-button: var(--blue2);
+    --secondary-category-button: var(--purple1);
+    --chosen-button: var(--pink);
+    --hover-button: var(--violet);
+    --click-button: var(--blue0);
+}
+
+.light {
+    --bg: var(--gray0);
+    --secondary-bg: var(--gray1);
+    --text: var(--black);
+    --secondary-text: var(--gray4);
+    --console-bg: var(--gray1);
+    --on: var(--green0);
+    --off: var(--red);
+    --button: var(--green0);
+    --category-button: var(--blue1);
+    --secondary-category-button: var(--purple0);
+    --chosen-button: var(--pink);
+    --hover-button: var(--violet);
+    --click-button: var(--blue0);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Bahnschrift Regular", serif;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;;
+}
+
+.container {
+    display: flex;
+    margin: 0 25%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    margin: 0.5rem 0;
+    justify-content: space-between;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    height: 2rem;
+}
+
+.menu * {
+    display: flex;
+}
+
+#new-game-button {
+    border-radius: 3%;
+    background-color: var(--button);
+    color: var(--text);
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 10rem;
+    height: 2rem;
+    justify-content: center;
+    align-items: center;
+    opacity: 70%;
+    transition: opacity 0.2s;
+}
+
+#new-game-button:hover {
+    opacity: 100%;
+}
+
+.slide-container {
+    width: auto; /* Width of the outside container */
+    margin-right: auto;
+}
+
+.slider-label {
+    margin-right: 1rem;
+    padding-bottom: 0.3rem;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+    background: var(--secondary-bg);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider, .slider:active, .slider:focus{
+    outline: red;
+}
+
+input::-moz-focus-inner {
+    border: 0;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: var(--slider-value);
+    height: var(--slider-value);
+    border-radius: 50%;
+    background: var(--button);
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: var(--slider-value);
+    height: var(--slider-value);
+    border-radius: 50%;
+    background: var(--button);
+    cursor: pointer;
+}
+
+
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#response-box {
+    display: flex;
+    height: 20rem;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    resize: none;
+    background-color: var(--console-bg);
+    color: var(--secondary-text);
+}
+
+#command-input {
+    margin-top: 0.5rem;
+    height: 1.8rem;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    font-size: 1.2rem;
+    width: 100%;
+    background-color: var(--console-bg);
+    color: var(--secondary-text);
+}
+
+.touch-input-container {
+    /*display: none;*/
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    transform: scale(0);
+    transition: all 0.3s ease;
+}
+
+.touch-input-container > * {
+    flex-basis: 25%;
+    margin: 0 0.5rem;
+}
+
+.touch-input-container div:first-of-type {
+    margin-left: 0;
+}
+
+.touch-input-container div:last-of-type {
+    margin-right: 0;
+}
+
+.touch-input-category {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.category-toggle-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.touch-input {
+    margin-top: 0.2rem;
+    background-color: var(--category-button);
+    width: 100%;
+    transition: all 0.5s;
+    flex-grow: 1;
+}
+
+.category-toggle-container * {
+    background-color: var(--secondary-category-button);
+}
+
+.touch-input:hover {
+    background-color: var(--hover-button);
+    cursor: default;
+}
+
+.touch-input:active {
+    transition: all 0s;
+    background-color: var(--click-button);
+}
+
+[name='category-toggle'] {
+    display: none;
+}
+
+.touch-execute-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.touch-execute-container > * {
+    background-color: var(--button);
+}
+
+.toggle-checkbox-input {
+    display: none;
+}
+
+.toggle-checkbox-text {
+    overflow: hidden;
+}
+
+.toggle-checkbox {
+    overflow: hidden;
+    margin: 0.5rem 0;
+    flex-direction: row;
+    width: 3rem;
+    height: 1.5rem;
+    border-radius: 30px;
+    background-color: var(--secondary-bg);
+    display: block;
+    position: relative;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    opacity: 70%;
+}
+
+.toggle-checkbox:hover {
+    opacity: 100%;
+}
+
+.toggle-checkbox::before {
+    position: absolute;
+    content: " ";
+    display: block;
+    left: 0;
+    right: auto;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: var(--off);
+}
+
+
+.toggle-checkbox-input:checked + .toggle-checkbox::before {
+    right: 0;
+    left: auto;
+    background: var(--on);
+}
+
+#theme-checkbox {
+    margin: 0;
+    justify-content: center;
+    justify-self: center;
+}
+
+#theme-checkbox::before {
+    background: url('../images/sun.svg') var(--yellow) no-repeat 50%;
+    background-size: 1.1rem;
+}
+
+.toggle-checkbox-input:checked + #theme-checkbox::before {
+    background: url('../images/moon.svg') var(--text) no-repeat;
+    background-size: 1.5rem;
+}
+
+#touch-checkbox-input:checked ~ .touch-input-container {
+    transform: scale(1);
+    user-focus: true;
+}
+
+#touch-checkbox-text {
+    align-self: flex-end;
+}
+
+#touch-checkbox {
+    align-self: flex-end;
+}
+
+
+@media all and (max-width: 1200px) {
+    .container {
+        margin: 0 20%;
+    }
+
+    #response-box {
+        font-size: 1.2rem;
+    }
+}
+
+@media all and (max-width: 720px) {
+    .container {
+        margin: 0 5%;
+    }
+
+    #response-box {
+        font-size: 1.5rem;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .container {
+        margin: 0 1%;
+    }
+
+    .touch-input-container > * {
+        flex-basis: 25%;
+        margin: 0 0.1rem;
+    }
+
+    .menu {
+        flex-direction: column;
+        justify-content: center;
+        height: 7rem;
+    }
+
+    .slide-container {
+        height: 2rem;
+        margin: 0;
+    }
+}
