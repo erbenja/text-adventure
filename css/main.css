@@ -70,7 +70,8 @@
 body {
     background-color: var(--bg);
     color: var(--text);
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    ;
 }
 
 .container {
@@ -116,7 +117,8 @@ body {
 }
 
 .slide-container {
-    width: auto; /* Width of the outside container */
+    width: auto;
+    /* Width of the outside container */
     margin-right: auto;
 }
 
@@ -137,7 +139,9 @@ body {
     transition: opacity .2s;
 }
 
-.slider, .slider:active, .slider:focus{
+.slider,
+.slider:active,
+.slider:focus {
     outline: red;
 }
 
@@ -163,9 +167,9 @@ input::-moz-focus-inner {
     cursor: pointer;
 }
 
-
 .slider:hover {
-    opacity: 1; /* Fully shown on mouse-over */
+    opacity: 1;
+    /* Fully shown on mouse-over */
 }
 
 .game {
@@ -177,6 +181,8 @@ input::-moz-focus-inner {
 
 #response-box {
     display: flex;
+    flex-direction: column;
+    overflow: auto;
     height: 20rem;
     padding: 0.5rem;
     box-sizing: border-box;
@@ -184,6 +190,15 @@ input::-moz-focus-inner {
     resize: none;
     background-color: var(--console-bg);
     color: var(--secondary-text);
+}
+
+div {
+    margin-bottom: 0.5rem;
+}
+
+.post > div {
+    margin-bottom: 0.1rem;
+    margin-left: 1rem;
 }
 
 #command-input {
@@ -206,7 +221,7 @@ input::-moz-focus-inner {
     transition: all 0.3s ease;
 }
 
-.touch-input-container > * {
+.touch-input-container>* {
     flex-basis: 25%;
     margin: 0 0.5rem;
 }
@@ -262,7 +277,7 @@ input::-moz-focus-inner {
     flex-direction: column;
 }
 
-.touch-execute-container > * {
+.touch-execute-container>* {
     background-color: var(--button);
 }
 
@@ -305,8 +320,7 @@ input::-moz-focus-inner {
     background: var(--off);
 }
 
-
-.toggle-checkbox-input:checked + .toggle-checkbox::before {
+.toggle-checkbox-input:checked+.toggle-checkbox::before {
     right: 0;
     left: auto;
     background: var(--on);
@@ -323,12 +337,12 @@ input::-moz-focus-inner {
     background-size: 1.1rem;
 }
 
-.toggle-checkbox-input:checked + #theme-checkbox::before {
+.toggle-checkbox-input:checked+#theme-checkbox::before {
     background: url('../images/moon.svg') var(--text) no-repeat;
     background-size: 1.5rem;
 }
 
-#touch-checkbox-input:checked ~ .touch-input-container {
+#touch-checkbox-input:checked~.touch-input-container {
     transform: scale(1);
     user-focus: true;
 }
@@ -341,12 +355,10 @@ input::-moz-focus-inner {
     align-self: flex-end;
 }
 
-
 @media all and (max-width: 1200px) {
     .container {
         margin: 0 20%;
     }
-
     #response-box {
         font-size: 1.2rem;
     }
@@ -356,7 +368,6 @@ input::-moz-focus-inner {
     .container {
         margin: 0 5%;
     }
-
     #response-box {
         font-size: 1.5rem;
     }
@@ -366,18 +377,15 @@ input::-moz-focus-inner {
     .container {
         margin: 0 1%;
     }
-
-    .touch-input-container > * {
+    .touch-input-container>* {
         flex-basis: 25%;
         margin: 0 0.1rem;
     }
-
     .menu {
         flex-direction: column;
         justify-content: center;
         height: 7rem;
     }
-
     .slide-container {
         height: 2rem;
         margin: 0;

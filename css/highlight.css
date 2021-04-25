@@ -1,0 +1,65 @@
+/* items */
+GOLD {
+    color: var(--yellow);
+}
+
+KEY, SWORD {
+    text-shadow: 0 0 2px var(--gray0);
+}
+
+
+POTION {
+    color: var(--pink);
+}
+
+
+
+
+/* environmets */
+/* FOREST::after, SWAMP::after, FIELD::after {
+    content: " ";
+    display: block;
+    left: 0;
+    right: auto;
+    background-size: 280px 280px;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+}
+
+
+
+FOREST::after {
+    background: url('../images/forest.svg') black no-repeat 50%;
+}
+
+​
+SWAMP::after {
+    background: url('../images/swamp.svg') black no-repeat 50%;
+}
+
+​
+FIELD::after {
+    background: url('../images/field.svg') black no-repeat 50%;
+} */
+
+
+
+
+/* enemies */
+WOLF, BANDIT {
+    color: var(--red);
+}
+
+
+/* neutrals */
+MONK, TRAVELER, SHOPKEEPER {
+    color: var(--blue1);
+}
+
+
+
+/* status */
+HP {
+    color: var(--red);
+}

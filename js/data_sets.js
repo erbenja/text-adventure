@@ -32,3 +32,6 @@ export const DIRECTIONS = new Map([
     ['SOUTH', 2],
     ['WEST', 3]
 ]);
+
+export const HIGHLIGHTS = [...ITEMS.keys(), ...ENEMIES.keys(), ...NEUTRALS.keys(), ...ENVIRONMENTS.keys(), 'HP'];
+export const HIGHLIGHTS_REGEX = `(${HIGHLIGHTS.join(')|(')})`;

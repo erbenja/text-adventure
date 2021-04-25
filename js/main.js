@@ -1,6 +1,6 @@
 import { getRandomInt, createArray } from './utils.js'
 import { Item, Room } from './generic_models.js'
-import { DIRECTIONS, ACTIONS, PREPOSITIONS } from './data_sets.js'
+import { DIRECTIONS, ACTIONS, PREPOSITIONS, HIGHLIGHTS_REGEX } from './data_sets.js'
 
 //Document Elements
 const PLAYER_INPUT = document.querySelector('#command-input');
@@ -41,8 +41,33 @@ function resetResponseBox() {
     RESPONSE_BOX.innerHTML = '';
 }
 
-function addTextToBox(string) {
-    RESPONSE_BOX.innerHTML += string + '\n';
+function highlight_text(text, regExp = HIGHLIGHTS_REGEX) {
+    return text.replace(new RegExp(regExp, 'gi'), tag => `<${tag}>${tag}</${tag}>`);
+}
+
+function addTextToBox(text) {
+    // const highlightedText = string.replace('GOLD', "<gold>GOLD</gold>")
+    const div = document.createElement('div');
+    div.classList.add('post');
+    if (Array.isArray(text)) {
+        text.forEach(arr => {
+            const subDiv = document.createElement('div');
+            if (Array.isArray(arr)) {
+                console.log(arr);
+                arr.forEach((item, index) => {
+                    const endChar = index === 0 ? ':' : index < arr.length - 1 ? ',' : '';
+                    subDiv.innerHTML += `${highlight_text(item)}${endChar} `;
+                })
+            } else {
+                subDiv.innerHTML += highlight_text(arr);
+            }
+            div.appendChild(subDiv);
+        })
+    } else {
+        div.innerHTML += highlight_text(text);
+    }
+
+    RESPONSE_BOX.appendChild(div);
     RESPONSE_BOX.scrollTop = RESPONSE_BOX.scrollHeight;
 }
 
@@ -425,8 +450,6 @@ class Player {
             return 'nothing in your pockets';
         }
         this.inventory.forEach((v, k) => {
-            // console.log(v);
-            // console.log(k);
             desc += `\n   ${v.toString()}`;
         });
         return desc;

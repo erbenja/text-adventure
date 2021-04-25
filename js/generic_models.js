@@ -24,7 +24,7 @@ export class Room {
         return undefined;
     }
 
-    toString() {
+    toStringOLD() {
         let desc = this.env.name + ':';
         desc += "\n   enemies: ";
         this.enemies.forEach(e => desc += e.name + ", ");
@@ -32,6 +32,20 @@ export class Room {
         this.neutrals.forEach(e => desc += e.name + ", ");
         desc += "\n   items: ";
         this.items.forEach(e => desc += e.name + ", ");
+        return desc;
+    }
+
+    toString() {
+        const desc = [];
+        desc.push(`${this.env.name}`);
+        const enemies = ['enemies'];
+        this.enemies.forEach(e => enemies.push(e.name));
+        const neutrals = ['neutrals'];
+        this.neutrals.forEach(e => neutrals.push(e.name));
+        const items = ['items'];
+        this.items.forEach(e => items.push(e.name));
+
+        desc.push(enemies, neutrals, items);
         return desc;
     }
 
