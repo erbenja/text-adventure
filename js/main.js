@@ -365,7 +365,8 @@ class Game {
     getCharInRoom(receiver, room) {
         if (room.enemies.has(receiver)) {
             return room.enemies.get(receiver);
-        } else if (room.neutrals.has(receiver)) {
+        } 
+        if (room.neutrals.has(receiver)) {
             return room.neutrals.get(receiver);
         }
         return undefined;
@@ -409,9 +410,8 @@ class Player {
                 this.inventory.delete(item);
             }
             return true;
-        } else {
-            return false;
-        }
+        } 
+        return false;
     }
 
     addItem(item) {
@@ -437,9 +437,8 @@ class Player {
                 this.inventory.delete(item);
             }
             return { result: true, message };
-        } else {
-            return { result: false, message: `You carry no ${item} in you pockets` };
-        }
+        } 
+        return { result: false, message: `You carry no ${item} in you pockets` };
     }
 
 
@@ -464,12 +463,10 @@ class Player {
     }
 
     rollDamage() {
-        let damage;
+        let damage = getRandomInt(2, 1);
         if (this.useItem('SWORD', true).result) {
             damage = getRandomInt(5, 3);
-        } else {
-            damage = getRandomInt(2, 1);
-        }
+        } 
         // console.log(`You have rolled ${damage}`);
         return damage;
     }

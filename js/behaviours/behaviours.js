@@ -36,9 +36,8 @@ export class WolfBehaviour extends Behaviour {
     receiveItem(item, game) {
         if (item === 'POTION') {
             return { message: 'Howl......', action: (char) => game.die(char) };
-        } else {
-            return { message: 'Woof!! Woof!' };
         }
+        return { message: 'Woof!! Woof!' };
     }
 
     //to have random gold drop count
@@ -58,10 +57,9 @@ export class BanditBehaviour extends Behaviour {
 
     receiveItem(item, game) {
         if (item === 'GOLD' || item === 'SWORD') {
-            return { message: 'Bandit have peacefully left this area.', action: (char) => game.leave(char) };
-        } else {
-            return { message: 'Are you making joke of me?' };
+            return { message: 'Bandit has peacefully left this area.', action: (char) => game.leave(char) };
         }
+        return { message: 'Are you making a joke of me?' };
     }
 
     //to have random gold drop count
@@ -86,9 +84,8 @@ export class TravelerBehaviour extends Behaviour {
                 message: 'That is what i needed. Here have my sword as a thanks.',
                 action: () => game.player.addItem(new Item('SWORD'))
             };
-        } else {
-            return { message: 'Thank you for you precious gift.' };
         }
+        return { message: 'Thank you for you precious gift.' };
     }
 
     //to have random gold drop count
@@ -113,14 +110,14 @@ export class MonkBehaviour extends Behaviour {
                 message: 'Is that THE KEY?... Here have some boost.',
                 action: () => game.player.addItem(new Item('POTION'))
             };
-        } else if (item === 'GOLD') {
+        }
+        if (item === 'GOLD') {
             return {
                 message: 'Let this blessing keep you on your feet.',
                 action: () => game.player.hp += 2
             }
-        } else {
-            return { message: 'Thank you for you precious gift. But i do not have much of a use for it' };
         }
+        return { message: 'Thank you for you precious gift. But i do not have much of a use for it' };
     }
 
     //to have random gold drop count
@@ -144,24 +141,26 @@ export class ShopkeeperBehaviour extends Behaviour {
                 message: 'Kind of rusty but still a nice pice of metal. Here have 1x GOLD',
                 action: () => this.giveCoins(2, game)
             };
-        } else if (item === 'GOLD') {
+        }
+        if (item === 'GOLD') {
             return {
                 message: 'Coin for coin. That is weird but deal is a deal',
                 action: () => this.giveCoins(1, game)
             };
-        } else if (item === 'SWORD') {
+        }
+        if (item === 'SWORD') {
             return {
                 message: 'That is beautiful craftsmanship. Here have 3x GOLD',
                 action: () => this.giveCoins(3, game)
             };
-        } else if (item === 'POTION') {
+        }
+        if (item === 'POTION') {
             return {
                 message: 'Drug are hard to come by in this part of world. Here have 2x GOLD',
                 action: () => this.giveCoins(2, game)
             };
-        } else {
-            return { message: 'Let me have a look on it.' };
         }
+        return { message: 'Let me have a look on it.' };
     }
 
     giveCoins(amount, game) {

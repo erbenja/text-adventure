@@ -21,11 +21,9 @@ export class PotionStrategy {
     constructor() {}
 
     use(player, combat = false) {
-        const weird = 10 < getRandomInt(100);
-        let message = '';
-        if (weird) {
-            message = 'You feel kind of weird, but nothing else happened.'
-        } else {
+        const isGoodPotion = 10 > getRandomInt(100);
+        let message = 'You feel kind of weird, but nothing else happened.';
+        if (isGoodPotion) {
             const hpBoost = getRandomInt(5, 1);
             player.hp += hpBoost;
             message = `You have healed up for ${hpBoost}.`;
@@ -39,11 +37,9 @@ export class SwordStrategy {
 
     use(player, combat = false) {
         const clumsy = 70 < getRandomInt(100);
-        let message = ''
+        let message = 'You have flipped the sword behind you back and caught it on your finger. Very impressive indeed. Clap clap clap.'
         if (clumsy) {
             message = 'You have dropped your sword and it got all dirty. :('
-        } else {
-            message = 'You have flipped the sword behind you back and caught it on your finger. Very impressive indeed. Clap clap clap.'
         }
         return message;
     }

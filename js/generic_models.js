@@ -55,7 +55,7 @@ export class NPC {
     constructor(enemy = false, name = null) {
         this.enemy = enemy;
         this.position = getRandomMapEntry(DIRECTIONS).key;
-        if (name == null) {
+        if (name === null) {
             if (enemy) {
                 this.character = getRandomMapEntry(ENEMIES);
             } else {
@@ -94,7 +94,7 @@ export class NPC {
 
 export class Environment {
     constructor(name = null) {
-        if (name == null) {
+        if (name === null) {
             this.env = getRandomMapEntry(ENVIRONMENTS);
         }
         this.name = this.env.key;
@@ -115,7 +115,7 @@ export class Environment {
 
 export class Item {
     constructor(name = null) {
-        if (name == null) {
+        if (name === null) {
             // let index = getRandomInt(ITEMS.length);
             // name = ITEMS.get('GOLD');
             this.item = getRandomMapEntry(ITEMS);
