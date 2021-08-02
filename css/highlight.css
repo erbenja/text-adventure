@@ -15,33 +15,30 @@ POTION {
 
 
 
-/* environmets */
-/* FOREST::after, SWAMP::after, FIELD::after {
-    content: " ";
-    display: block;
-    left: 0;
-    right: auto;
-    background-size: 280px 280px;
-    width: 280px;
-    height: 280px;
-    border-radius: 50%;
+/* environments */
+FOREST::after, SWAMP::after, FIELD::after {
+    background-size: 1.5rem;
+    margin-left: 0.5rem;
+    display: inline-block;
+    width: 1.5rem; 
+    height: 1.5rem;
+    content:"";
+    border-radius: 20%;
 }
 
 
 
 FOREST::after {
-    background: url('../images/forest.svg') black no-repeat 50%;
+    background-image: url('../images/forest.svg');
 }
 
-​
 SWAMP::after {
-    background: url('../images/swamp.svg') black no-repeat 50%;
+    background-image: url('../images/swamp.svg');
 }
 
-​
 FIELD::after {
-    background: url('../images/field.svg') black no-repeat 50%;
-} */
+    background-image: url('../images/field.svg');
+}
 
 
 
